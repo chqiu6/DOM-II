@@ -20,14 +20,15 @@ keyDown.addEventListener("keydown", () => {
     keyDown.style.color = "skyblue";
 });
 
-//keyup test
-// const keyUp = document.querySelector("html");
-// keyUp.addEventListener("keyup", () => {
-//     if(event.isComposing || event.keyCode === 229){
-//         return;
-//     }
-//     keyUp.style.backgroundColor = "white";
-// });
+// keyup test
+const keyUp = document.querySelector("html");
+keyUp.addEventListener("keyup", () => {
+    if(event.isComposing || event.keyCode === 229){
+        return;
+    }
+    keyUp.style.backgroundColor = "white";
+    keyUp.style.color = "violet";
+});
 
 // scroll 
 const scrollEvent = document.querySelector(".intro img");
@@ -46,15 +47,28 @@ window.addEventListener("resize", () => {
     });
 });
 
-//mouseclick 
-const mouseClick = document.querySelectorAll(".nav a");
-console.log(mouseClick);
-window.addEventListener("click", (e) => {
-    e.preventDefault();
-    mouseClick.forEach((changecolor) => {
-        changecolor.style.color = "red";
+//wheel
+const wheelImg = document.querySelectorAll(".img-content img");
+console.log(wheelImg);
+wheelImg.forEach((pic) => {
+    pic.addEventListener("wheel", (e) => {
+        e.stopPropagation();
+        e.target.style.transform = "scale(2)";
     });
 });
+
+//mouseclick 
+const mouseClick = document.querySelectorAll("a");
+console.log(mouseClick);
+mouseClick.forEach((ele) => {
+    ele.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.target.style.color = "red";
+        e.target.style.backgroundColor = "gold";
+    });
+});
+
+
 
 //mouse doubleclick
 const mouseDble = document.querySelector(".footer p");
@@ -63,4 +77,10 @@ mouseDble.addEventListener("dblclick", () => {
     mouseDble.style.fontSize = "5rem";
     
 });
+
+//load
+window.addEventListener("load", () => {
+    alert("This is a loading test");
+});
+
 
